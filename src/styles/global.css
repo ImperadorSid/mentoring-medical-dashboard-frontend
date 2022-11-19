@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 1.5em sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #333333;
+    color: #dddddd;
+  }
+}
