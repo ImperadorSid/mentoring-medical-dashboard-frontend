@@ -11,4 +11,12 @@ body {
     background: #333333;
     color: #dddddd;
   }
+
+  a {
+    color: #dddddd;
+  }
+
+  a:hover {
+    color: #bbbbbb;
+  }
 }

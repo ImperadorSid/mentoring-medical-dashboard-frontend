@@ -1,4 +1,5 @@
 import { RouterProvider } from 'react-router-dom'
+import { AllProviders } from './providers'
 
 import { router } from './routes'
 
@@ -6,6 +7,8 @@ import './styles/global.css'
 
 export const App = () => (
   <div className="App">
-    <RouterProvider router={router} />
+    <AllProviders>
+      <RouterProvider router={router} />
+    </AllProviders>
   </div>
 )

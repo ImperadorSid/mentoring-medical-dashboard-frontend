@@ -8,7 +8,7 @@ export const PatientCard = ({
   birthday: rawBirthday,
   insurancePlan,
 }: PatientCardProps) => {
-  const birthday = format(rawBirthday, 'dd/MM/yyyy')
+  const birthday = format(new Date(rawBirthday), 'dd/MM/yyyy')
 
   return (
     <li>
