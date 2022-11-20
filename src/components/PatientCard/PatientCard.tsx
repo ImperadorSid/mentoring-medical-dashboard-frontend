@@ -1,5 +1,6 @@
-import { PatientCardProps } from './PatientCard.types'
 import { format } from 'date-fns'
+
+import { PatientCardProps } from './PatientCard.types'
 
 export const PatientCard = ({
   name,

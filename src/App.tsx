@@ -1,6 +1,6 @@
 import { RouterProvider } from 'react-router-dom'
-import { AllProviders } from './providers'
 
+import { AllProviders } from './providers'
 import { router } from './routes'
 
 import './styles/global.css'
