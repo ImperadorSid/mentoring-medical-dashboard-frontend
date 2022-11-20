@@ -31,13 +31,23 @@ export const PatientProvider = ({ children }: PatientProviderProps) => {
     await apiService.post('/patients', patientData)
   }, [])
 
+  const deletePatient = useCallback(
+    async (id: string) => {
+      await apiService.delete(`/patients/${id}`)
+
+      await loadPatients()
+    },
+    [loadPatients]
+  )
+
   const value = useMemo(
     () => ({
       patients,
       loadPatients,
       addPatient,
+      deletePatient,
     }),
-    [patients, loadPatients, addPatient]
+    [patients, loadPatients, addPatient, deletePatient]
   )
 
   return (

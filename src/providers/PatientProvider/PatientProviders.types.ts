@@ -18,4 +18,5 @@ export type PatientContextData = {
   patients: Patient[]
   loadPatients: () => void
   addPatient: (patientData: AddPatientParms) => void
+  deletePatient: (id: string) => void
 }

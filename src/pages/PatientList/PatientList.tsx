@@ -8,17 +8,20 @@ export const PatientList = () => {
   const { patients, loadPatients } = usePatient()
 
   useEffect(() => {
-    if (patients.length === 0) loadPatients()
-  }, [patients, loadPatients])
+    loadPatients()
+  }, [loadPatients])
 
   return (
     <div>
       <h1>Patient List</h1>
 
+      <Link to="/create">Create new patient</Link>
+
       <ul>
         {patients.map(
           ({ id, name, document, healthSystemId, birthday, insurancePlan }) => (
             <PatientCard
+              id={id}
               key={id}
               name={name}
               document={document}
@@ -29,8 +32,6 @@ export const PatientList = () => {
           )
         )}
       </ul>
-
-      <Link to="/create">Create new patient</Link>
     </div>
   )
 }

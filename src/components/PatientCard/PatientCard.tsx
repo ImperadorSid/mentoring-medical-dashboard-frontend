@@ -1,8 +1,10 @@
 import { format } from 'date-fns'
 
+import { usePatient } from '../../providers'
 import { PatientCardProps } from './PatientCard.types'
 
 export const PatientCard = ({
+  id,
   name,
   document,
   healthSystemId,
@@ -10,6 +12,7 @@ export const PatientCard = ({
   insurancePlan,
 }: PatientCardProps) => {
   const birthday = format(new Date(rawBirthday), 'dd/MM/yyyy')
+  const { deletePatient } = usePatient()
 
   return (
     <li>
@@ -21,6 +24,8 @@ export const PatientCard = ({
       </p>
 
       <p>{insurancePlan.name}</p>
+
+      <button onClick={() => deletePatient(id)}>Delete</button>
     </li>
   )
 }
