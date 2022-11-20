@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 import { PatientCard } from '../../components'
 import { usePatient } from '../../providers'
@@ -28,6 +29,8 @@ export const PatientList = () => {
           )
         )}
       </ul>
+
+      <Link to="/create">Create new patient</Link>
     </div>
   )
 }

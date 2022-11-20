@@ -6,6 +6,16 @@ body {
   font: 1.25em sans-serif;
 }
 
+input {
+  font-family: inherit;
+}
+
+input,
+button {
+  font-size: 0.75em;
+  border: none;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background: #333333;
@@ -18,5 +28,15 @@ body {
 
   a:hover {
     color: #bbbbbb;
+  }
+
+  input {
+    background: #555555;
+    color: #bbbbbb;
+  }
+
+  button {
+    background: #777777;
+    color: #dddddd;
   }
 }

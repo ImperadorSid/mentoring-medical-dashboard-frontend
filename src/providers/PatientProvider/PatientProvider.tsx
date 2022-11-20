@@ -1,8 +1,15 @@
-import { createContext, useContext, useMemo, useState } from 'react'
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from 'react'
 
 import { apiService } from '../../services/apiService'
 import { Patient } from '../../types/patient'
 import {
+  AddPatientParms,
   PatientContextData,
   PatientProviderProps,
 } from './PatientProviders.types'
@@ -12,18 +19,26 @@ const PatientContext = createContext<PatientContextData | null>(null)
 export const PatientProvider = ({ children }: PatientProviderProps) => {
   const [patients, setPatients] = useState<Patient[]>([])
 
-  const loadPatients = async () => {
-    console.log('Fetching patient data from API')
-
+  const loadPatients = useCallback(async () => {
     const { data } = await apiService.get<Patient[]>('/patients')
 
     setPatients(data)
-  }
+  }, [setPatients])
+
+  const addPatient = useCallback(
+    async (patientData: AddPatientParms) => {
+      console.log('Creating new patient...')
+
+      await apiService.post<Patient[]>('/patients', patientData)
+    },
+    [patients]
+  )
 
   const value = useMemo(
     () => ({
       patients,
       loadPatients,
+      addPatient,
     }),
     [patients, loadPatients]
   )

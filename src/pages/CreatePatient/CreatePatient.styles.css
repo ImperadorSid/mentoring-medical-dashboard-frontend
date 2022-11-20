@@ -1,0 +1,15 @@
+form {
+  margin: 1em;
+}
+
+label {
+  display: flex;
+  justify-content: space-between;
+
+  width: 20em;
+  margin: 0.5em 0;
+}
+
+input {
+  width: 15em;
+}
