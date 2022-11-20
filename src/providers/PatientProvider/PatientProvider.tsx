@@ -25,14 +25,11 @@ export const PatientProvider = ({ children }: PatientProviderProps) => {
     setPatients(data)
   }, [setPatients])
 
-  const addPatient = useCallback(
-    async (patientData: AddPatientParms) => {
-      console.log('Creating new patient...')
+  const addPatient = useCallback(async (patientData: AddPatientParms) => {
+    console.log('Creating new patient...')
 
-      await apiService.post<Patient[]>('/patients', patientData)
-    },
-    [patients]
-  )
+    await apiService.post('/patients', patientData)
+  }, [])
 
   const value = useMemo(
     () => ({
@@ -40,7 +37,7 @@ export const PatientProvider = ({ children }: PatientProviderProps) => {
       loadPatients,
       addPatient,
     }),
-    [patients, loadPatients]
+    [patients, loadPatients, addPatient]
   )
 
   return (
