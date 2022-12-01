@@ -8,6 +8,10 @@ export const router = createBrowserRouter([
     element: <PatientList />,
   },
   {
+    path: '/patients',
+    element: <PatientList />,
+  },
+  {
     path: '/create',
     element: <CreatePatient />,
   },
