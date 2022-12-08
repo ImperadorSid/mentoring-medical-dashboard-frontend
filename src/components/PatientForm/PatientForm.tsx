@@ -26,7 +26,7 @@ export const PatientForm = ({ initialData, submitFunction }: PatientFormProps) =
           Insurance Plan <input {...register('insurancePlan')} />
         </label>
 
-        <button type="submit">Create</button>
+        <button type="submit">Save</button>
       </form>
   )
 }
