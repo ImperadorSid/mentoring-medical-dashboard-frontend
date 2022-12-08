@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 
-import { CreatePatient, PatientList } from '../pages'
+import { CreatePatient, EditPatient, PatientList } from '../pages'
 
 export const router = createBrowserRouter([
   {
@@ -15,6 +15,8 @@ export const router = createBrowserRouter([
     path: '/patients/create',
     element: <CreatePatient />,
   },
-    element: <CreatePatient />,
+  {
+    path: '/patients/edit/:patientId',
+    element: <EditPatient />,
   },
 ])

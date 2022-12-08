@@ -1,4 +1,5 @@
 import { format } from 'date-fns'
+import { Link } from 'react-router-dom'
 
 import { usePatient } from '../../providers'
 import { PatientCardProps } from './PatientCard.types'
@@ -25,6 +26,8 @@ export const PatientCard = ({
 
       <p>{insurancePlan}</p>
 
+      <Link to={`/patients/edit/${id}`}>Edit</Link>
+      
       <button onClick={() => deletePatient(id)}>Delete</button>
     </li>
   )

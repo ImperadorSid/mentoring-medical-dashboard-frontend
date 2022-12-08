@@ -9,7 +9,8 @@ import {
 import { apiService } from '../../services/apiService'
 import { Patient } from '../../types/patient'
 import {
-  AddPatientParms,
+  AddPatientParams,
+  EditPatientParams,
   PatientContextData,
   PatientProviderProps,
 } from './PatientProviders.types'
@@ -30,10 +31,18 @@ export const PatientProvider = ({ children }: PatientProviderProps) => {
     setPatients(fetchedPatients)
   }, [setPatients])
 
-  const addPatient = useCallback(async (patientData: AddPatientParms) => {
+  const addPatient = useCallback(async (patientData: AddPatientParams) => {
     console.log('Creating new patient...')
 
     await apiService.post('/patients', patientData)
+  }, [])
+
+  const updatePatient = useCallback(async (patientData: EditPatientParams) => {
+    const { id } = patientData
+    
+    console.log(`Updating new patient ${id}...`)
+    
+    await apiService.patch(`/patients/${id}`, patientData)
   }, [])
 
   const deletePatient = useCallback(
@@ -50,6 +59,7 @@ export const PatientProvider = ({ children }: PatientProviderProps) => {
       patients,
       loadPatients,
       addPatient,
+      updatePatient,
       deletePatient,
     }),
     [patients, loadPatients, addPatient, deletePatient]
