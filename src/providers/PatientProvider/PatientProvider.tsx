@@ -20,9 +20,14 @@ export const PatientProvider = ({ children }: PatientProviderProps) => {
   const [patients, setPatients] = useState<Patient[]>([])
 
   const loadPatients = useCallback(async () => {
-    const { data } = await apiService.get<Patient[]>('/patients')
+    const { data: rawPatients } = await apiService.get<Patient[]>('/patients')
 
-    setPatients(data)
+    const fetchedPatients = rawPatients.map(( patient ) => ({
+      ...patient,
+      birthday: new Date(patient.birthday)
+    }))
+
+    setPatients(fetchedPatients)
   }, [setPatients])
 
   const addPatient = useCallback(async (patientData: AddPatientParms) => {
