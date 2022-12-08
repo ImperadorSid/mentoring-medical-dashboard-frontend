@@ -15,7 +15,7 @@ export const PatientList = () => {
     <div>
       <h1>Patient List</h1>
 
-      <Link to="/create">Create new patient</Link>
+      <Link to="/patient/create">Create new patient</Link>
 
       <ul>
         {patients.map(

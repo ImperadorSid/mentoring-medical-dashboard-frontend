@@ -42,7 +42,7 @@ export const CreatePatient = () => {
         <button type="submit">Create</button>
       </form>
 
-      <Link to="/">Back to home</Link>
+      <Link to="/patients">Back to home</Link>
     </div>
   )
 }
