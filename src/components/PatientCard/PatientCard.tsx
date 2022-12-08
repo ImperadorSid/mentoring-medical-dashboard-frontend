@@ -23,7 +23,7 @@ export const PatientCard = ({
         {document} - {healthSystemId}
       </p>
 
-      <p>{insurancePlan.name}</p>
+      <p>{insurancePlan}</p>
 
       <button onClick={() => deletePatient(id)}>Delete</button>
     </li>
