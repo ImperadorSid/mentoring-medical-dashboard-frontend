@@ -6,17 +6,18 @@ export type PatientProviderProps = {
   children: React.ReactNode
 }
 
-export type AddPatientParms = {
-  name: string
-  document: string
-  healthSystemId: string
-  birthday: Date
-  insurancePlan: string
+type PatientParams = Omit<Patient, 'id'>
+
+export type AddPatientParams = PatientParams
+
+export type EditPatientParams = PatientParams & {
+  id: string
 }
 
 export type PatientContextData = {
   patients: Patient[]
-  loadPatients: () => void
-  addPatient: (patientData: AddPatientParms) => void
-  deletePatient: (id: string) => void
+  loadPatients: () => Promise<void>
+  addPatient: (patientData: AddPatientParams) => Promise<void>
+  updatePatient: (patientData: EditPatientParams) => Promise<void>
+  deletePatient: (id: string) => Promise<void>
 }
