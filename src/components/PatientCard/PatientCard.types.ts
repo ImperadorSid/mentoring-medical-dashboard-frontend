@@ -1,8 +1,3 @@
-export type PatientCardProps = {
-  id: string
-  name: string
-  document: string
-  healthSystemId: string
-  birthday: Date
-  insurancePlan: string
-}
+import { Patient } from '../../types/patient'
+
+export type PatientCardProps = Patient

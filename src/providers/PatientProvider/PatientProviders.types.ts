@@ -6,13 +6,7 @@ export type PatientProviderProps = {
   children: React.ReactNode
 }
 
-type PatientParams = {
-  name: string
-  document: string
-  healthSystemId: string
-  birthday: Date
-  insurancePlan: string
-}
+type PatientParams = Omit<Patient, 'id'>
 
 export type AddPatientParams = PatientParams
 
